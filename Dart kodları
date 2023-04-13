@@ -1,0 +1,87 @@
+//Basit hesap makinesi 
+//Simple calculator
+import 'dart:io';
+import 'dart:math';
+void main(){
+  print("tr-en");
+  String? lang = stdin.readLineSync(); 
+
+  if(lang == "tr"){
+  
+    print("Lütfen ilk değeri giriniz: ");
+    String? deger1 = stdin.readLineSync(); 
+    int sayi1 = int.parse(deger1!);
+    print("Lütfen ikinci değeri giriniz: ");
+    String? deger2 = stdin.readLineSync();
+    int sayi2 = int.parse(deger2!);
+  
+    print("Lütfen Yapmak istediğiniz İşlemi Seçiniz:\n Toplama(+)\n Çıkarma(-)\n Çarpma(*) \n Bölme(/)\n Üs Alma(**)");
+    String? islem =stdin.readLineSync();
+    if(islem != null){
+      switch(islem){
+      case '+':
+      case '-':
+      case '*':
+      case '/':
+      case '**':
+        hesapla(sayi1,sayi2,islem);
+        break;
+      default:
+        print("Geçersiz Değer");
+        break;
+      }
+    
+    }
+  }
+
+  if(lang == "en"){
+
+    print("Please enter the first value: ");
+    String? deger1 = stdin.readLineSync(); 
+    int sayi1 = int.parse(deger1!);
+    print("Please enter the second value ");
+    String? deger2 = stdin.readLineSync();
+    int sayi2 = int.parse(deger2!);
+
+    print("Please select the operation you want to perform:\n Addition (+)\n Subtraction (-)\n Multiplication (*)\n Division (/)\n Exponentiation (**)");
+    String? islem =stdin.readLineSync();
+    if(islem != null){
+      switch(islem){
+      case '+':
+      case '-':
+      case '*':
+      case '/':
+      case '**':
+        hesapla(sayi1,sayi2,islem);
+        break;
+      default:
+        print("Invalid input");
+        break;
+      }
+  }
+  }
+  if(lang != "tr" && lang != "en"){
+    print("Geçersiz Değer!\nInvalid input!");
+  }  
+}
+
+void hesapla(int sayi1, int sayi2, String islem){
+  
+  if(islem == "+"){
+        print(sayi1 + sayi2); 
+      }
+  if(islem == "-"){
+        print(sayi1 - sayi2); 
+      }
+  if(islem == "*"){
+        print(sayi1 * sayi2); 
+      }
+  if(islem == "/"){
+        print(sayi1 / sayi2); 
+      }
+  if(islem == "**"){
+        print(pow(sayi1,sayi2)); 
+      }
+}
+
+
